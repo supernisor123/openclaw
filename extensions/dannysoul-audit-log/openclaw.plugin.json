@@ -1,0 +1,30 @@
+{
+  "id": "dannysoul-audit-log",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "logDir": {
+        "type": "string",
+        "description": "Directory for JSONL event log files"
+      },
+      "maxFileBytes": {
+        "type": "number",
+        "minimum": 1048576,
+        "description": "Max file size before rotation (default: 10MB)"
+      }
+    }
+  },
+  "uiHints": {
+    "logDir": {
+      "label": "Log Directory",
+      "placeholder": "~/.openclaw/audit",
+      "advanced": true
+    },
+    "maxFileBytes": {
+      "label": "Max File Size",
+      "placeholder": "10485760",
+      "advanced": true
+    }
+  }
+}

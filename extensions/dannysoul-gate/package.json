@@ -1,0 +1,13 @@
+{
+  "name": "@openclaw/dannysoul-gate",
+  "version": "2026.2.15",
+  "private": true,
+  "description": "Approval gate for DannySoul dangerous/irreversible actions",
+  "type": "module",
+  "devDependencies": {
+    "openclaw": "workspace:*"
+  },
+  "openclaw": {
+    "extensions": ["./index.ts"]
+  }
+}

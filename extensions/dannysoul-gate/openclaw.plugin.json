@@ -1,0 +1,47 @@
+{
+  "id": "dannysoul-gate",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "approvalMode": {
+        "type": "string",
+        "enum": ["always", "dangerous", "never"],
+        "description": "When to require approval (default: dangerous)"
+      },
+      "ttlSeconds": {
+        "type": "number",
+        "minimum": 30,
+        "maximum": 600,
+        "description": "Pending gate TTL in seconds (default: 180)"
+      },
+      "maxSteps": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 50,
+        "description": "Max GUI steps per plan (default: 12)"
+      },
+      "stepTimeout": {
+        "type": "number",
+        "minimum": 5,
+        "maximum": 120,
+        "description": "Timeout per GUI step in seconds (default: 45)"
+      },
+      "includeScreenshot": {
+        "type": "boolean",
+        "description": "Capture screenshot with approval request"
+      }
+    }
+  },
+  "uiHints": {
+    "approvalMode": {
+      "label": "Approval Mode",
+      "help": "always = all actions need approval, dangerous = only risky actions, never = auto-approve all"
+    },
+    "ttlSeconds": {
+      "label": "Gate TTL",
+      "placeholder": "180",
+      "help": "Seconds before pending approval expires"
+    }
+  }
+}

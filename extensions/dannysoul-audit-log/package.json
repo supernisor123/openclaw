@@ -1,0 +1,13 @@
+{
+  "name": "@openclaw/dannysoul-audit-log",
+  "version": "2026.2.15",
+  "private": true,
+  "description": "Append-only JSONL audit log for DannySoul (events, tool calls, gates)",
+  "type": "module",
+  "devDependencies": {
+    "openclaw": "workspace:*"
+  },
+  "openclaw": {
+    "extensions": ["./index.ts"]
+  }
+}

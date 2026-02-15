@@ -1,0 +1,57 @@
+{
+  "id": "dannysoul-model-router",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "tiers": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "simple": { "type": "string" },
+          "conversation": { "type": "string" },
+          "planning": { "type": "string" },
+          "critical": { "type": "string" },
+          "tool": { "type": "string" }
+        }
+      },
+      "aliases": {
+        "type": "object",
+        "additionalProperties": { "type": "string" },
+        "description": "Custom alias -> full model name mapping"
+      },
+      "agentNames": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Agent names to detect in @mention patterns for planning intent"
+      }
+    }
+  },
+  "uiHints": {
+    "tiers.simple": {
+      "label": "Simple Tier",
+      "placeholder": "haiku",
+      "help": "Model for /help, /status, etc."
+    },
+    "tiers.conversation": {
+      "label": "Conversation Tier",
+      "placeholder": "sonnet",
+      "help": "Default model for general chat"
+    },
+    "tiers.planning": {
+      "label": "Planning Tier",
+      "placeholder": "sonnet",
+      "help": "Model for planning/design tasks"
+    },
+    "tiers.critical": {
+      "label": "Critical Tier",
+      "placeholder": "opus",
+      "help": "Model for security/irreversible tasks"
+    },
+    "tiers.tool": {
+      "label": "Tool Tier",
+      "placeholder": "",
+      "help": "Model for tool invocations (empty = use current)"
+    }
+  }
+}

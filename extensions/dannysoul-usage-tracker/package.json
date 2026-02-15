@@ -1,0 +1,13 @@
+{
+  "name": "@openclaw/dannysoul-usage-tracker",
+  "version": "2026.2.15",
+  "private": true,
+  "description": "Token usage tracking and cost estimation for DannySoul",
+  "type": "module",
+  "devDependencies": {
+    "openclaw": "workspace:*"
+  },
+  "openclaw": {
+    "extensions": ["./index.ts"]
+  }
+}

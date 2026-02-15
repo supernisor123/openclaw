@@ -1,0 +1,59 @@
+{
+  "id": "dannysoul-claude-code",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "defaultWorkdir": {
+        "type": "string",
+        "description": "Default working directory for Claude Code sessions"
+      },
+      "defaultModel": {
+        "type": "string",
+        "description": "Default model for Claude Code (default: sonnet)"
+      },
+      "maxConcurrentSessions": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 10,
+        "description": "Max concurrent Claude Code sessions (default: 3)"
+      },
+      "outputBatchIntervalMs": {
+        "type": "number",
+        "minimum": 500,
+        "maximum": 10000,
+        "description": "Batch interval for output streaming (default: 2000)"
+      },
+      "maxOutputCharsPerMessage": {
+        "type": "number",
+        "minimum": 500,
+        "maximum": 10000,
+        "description": "Max chars per Telegram message (default: 3000)"
+      },
+      "allowedTools": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Tools to auto-allow in Claude Code"
+      },
+      "autoApprovePatterns": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Tool patterns to auto-approve (e.g., Read, Glob, Grep)"
+      }
+    }
+  },
+  "uiHints": {
+    "defaultWorkdir": {
+      "label": "Default Workdir",
+      "placeholder": "~/Documents/antigravity/DannySoul"
+    },
+    "defaultModel": {
+      "label": "Default Model",
+      "placeholder": "sonnet"
+    },
+    "maxConcurrentSessions": {
+      "label": "Max Sessions",
+      "placeholder": "3"
+    }
+  }
+}

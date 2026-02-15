@@ -1,0 +1,13 @@
+{
+  "name": "@openclaw/dannysoul-model-router",
+  "version": "2026.2.15",
+  "private": true,
+  "description": "Intent-based model routing for DannySoul (keyword/regex, zero LLM cost)",
+  "type": "module",
+  "devDependencies": {
+    "openclaw": "workspace:*"
+  },
+  "openclaw": {
+    "extensions": ["./index.ts"]
+  }
+}

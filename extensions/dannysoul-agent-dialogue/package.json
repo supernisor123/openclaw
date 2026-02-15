@@ -1,0 +1,13 @@
+{
+  "name": "@openclaw/dannysoul-agent-dialogue",
+  "version": "2026.2.15",
+  "private": true,
+  "description": "Inter-agent dialogue: direct, ping-pong, and triangle (user + 2 agents) modes",
+  "type": "module",
+  "devDependencies": {
+    "openclaw": "workspace:*"
+  },
+  "openclaw": {
+    "extensions": ["./index.ts"]
+  }
+}

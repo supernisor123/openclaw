@@ -1,0 +1,48 @@
+{
+  "id": "dannysoul-usage-tracker",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "ledgerDir": {
+        "type": "string",
+        "description": "Directory for usage ledger files"
+      },
+      "costsPerMillion": {
+        "type": "object",
+        "additionalProperties": { "type": "number" },
+        "description": "Model name -> USD per 1M tokens"
+      },
+      "teamTokenPool": {
+        "type": "number",
+        "description": "Monthly token pool (0 = unlimited)"
+      },
+      "monthlyBudget": {
+        "type": "number",
+        "description": "Monthly USD budget (0 = unlimited)"
+      },
+      "maxRecentEvents": {
+        "type": "number",
+        "minimum": 10,
+        "maximum": 500,
+        "description": "Recent events to keep (default: 80)"
+      }
+    }
+  },
+  "uiHints": {
+    "costsPerMillion": {
+      "label": "Cost per 1M tokens",
+      "help": "JSON map of model -> USD/1M tokens"
+    },
+    "teamTokenPool": {
+      "label": "Token Pool",
+      "placeholder": "0",
+      "help": "Monthly token quota (0 = unlimited)"
+    },
+    "monthlyBudget": {
+      "label": "Monthly Budget",
+      "placeholder": "0",
+      "help": "Monthly USD budget (0 = unlimited)"
+    }
+  }
+}
