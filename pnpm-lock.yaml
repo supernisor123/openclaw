@@ -255,6 +255,42 @@ importers:
         specifier: workspace:*
         version: link:../..
 
+  extensions/dannysoul-agent-dialogue:
+    devDependencies:
+      openclaw:
+        specifier: workspace:*
+        version: link:../..
+
+  extensions/dannysoul-audit-log:
+    devDependencies:
+      openclaw:
+        specifier: workspace:*
+        version: link:../..
+
+  extensions/dannysoul-claude-code:
+    devDependencies:
+      openclaw:
+        specifier: workspace:*
+        version: link:../..
+
+  extensions/dannysoul-gate:
+    devDependencies:
+      openclaw:
+        specifier: workspace:*
+        version: link:../..
+
+  extensions/dannysoul-model-router:
+    devDependencies:
+      openclaw:
+        specifier: workspace:*
+        version: link:../..
+
+  extensions/dannysoul-usage-tracker:
+    devDependencies:
+      openclaw:
+        specifier: workspace:*
+        version: link:../..
+
   extensions/diagnostics-otel:
     dependencies:
       '@opentelemetry/api':

@@ -27,9 +27,7 @@ const modelRouterPlugin = {
     const config = parseConfig(api.pluginConfig);
     const planningPattern = buildPlanningPattern(config.agentNames);
 
-    api.logger.info(
-      `dannysoul-model-router: registered (tiers: ${JSON.stringify(config.tiers)})`,
-    );
+    api.logger.info(`dannysoul-model-router: registered (tiers: ${JSON.stringify(config.tiers)})`);
 
     // ========================================================================
     // Tool: classify_intent — available for other plugins/agents
@@ -67,18 +65,18 @@ const modelRouterPlugin = {
     // Lifecycle Hook: auto-route model before agent starts
     // ========================================================================
 
-    api.on("before_agent_start", async (event) => {
+    api.on("before_agent_start", async (event, _ctx) => {
       if (!event.prompt) return;
 
       const intent = classifyIntent(event.prompt, planningPattern);
       const model = selectModelForIntent(intent, config);
 
       if (model) {
-        api.logger.info?.(
-          `dannysoul-model-router: intent=${intent} → model=${model}`,
-        );
-        // Return model override for this agent run
-        return { model };
+        api.logger.info?.(`dannysoul-model-router: intent=${intent} → model=${model}`);
+        // Inject routing context so the agent is aware of the intent tier
+        return {
+          prependContext: `[model-router] intent=${intent} recommended-model=${model}`,
+        };
       }
     });
 
@@ -88,9 +86,7 @@ const modelRouterPlugin = {
 
     api.registerCli(
       ({ program }) => {
-        const router = program
-          .command("intent")
-          .description("DannySoul intent classification");
+        const router = program.command("intent").description("DannySoul intent classification");
 
         router
           .command("classify")
@@ -108,8 +104,7 @@ const modelRouterPlugin = {
           .description("Show current tier configuration")
           .action(() => {
             for (const [tier, alias] of Object.entries(config.tiers)) {
-              const resolved =
-                config.aliases[alias.toLowerCase()] ?? alias ?? "(current)";
+              const resolved = config.aliases[alias.toLowerCase()] ?? alias ?? "(current)";
               console.log(`${tier}: ${alias} → ${resolved}`);
             }
           });
